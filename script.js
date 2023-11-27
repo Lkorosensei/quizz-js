@@ -51,11 +51,44 @@ const questions = [
 
 /********* NE PAS MODIFIER AU DESSUS DE CETTE LIGNE *********/
 
+let affichageQuestions = document.getElementById("question");
+let affichageReponse = document.getElementById("answers");
+// let reponse = document.createElement("li");
+// reponse.classList.add("answer");
+// affichageReponse.appendChild(reponse);
+console.log("affichage réponse : ",affichageReponse);
+console.log("");
+console.log("");
+
 /*************************/
 /* Contenu du DOM chargé */
 /*************************/
 document.addEventListener("DOMContentLoaded", () => {
+  console.log("objet nodeJs des questions :",questions);
+  console.log("affichage des questions : ",affichageQuestions.innerText = questions[0].question);
+  console.log("");
+  questions.forEach(compteurQuestions => {
+    console.log("compteur questions :",compteurQuestions);
+    let reponseQuestions = compteurQuestions.answers;
+    console.log("reponseQuestions :",reponseQuestions);
+    affichageQuestions.innerText = compteurQuestions.question;
+    reponseQuestions.forEach(compteurReponse => {
+      console.log("compteurReponse :", compteurReponse);
+      console.log("");
+      let reponse = document.createElement("li");
+      reponse.classList.add("answer");
+      reponse.innerText = compteurReponse;
+      affichageReponse.appendChild(reponse)
+    });
+  });
+
   
+  // for (let i = 0; i < questions.length; i--) {
+  //   const element = questions[i].question;
+  //   console.log(element);
+  //   affichageQuestions.innerText = element
+  // }
+
 // démarrage du quizz
   
 });
